@@ -4,15 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo-items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/add-item-input-field"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <EditText
+        android:id="@+id/add-item-input-field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter a todo item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add-item-submit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add-item-submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Add Item"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/remove-items-button" />
 
+    <Button
+        android:id="@+id/remove-items-button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove Items"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!-- XML is the worst markup language,
+which bumbling fool decided to use it??? -->
+
+<!--notes>
+    <match_parent></match_parent>
+    <wrap_content>
+        Make it only as large as is necessary
+    </wrap_content>
+    <n-dp>
+        The smaller n is, the smaller the margin
+        <0dp>
+            0 is a special number denoting fill in the entire space
+        </0dp>
+    </n-dp>
+</notes-->
